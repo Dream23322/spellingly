@@ -1,5 +1,5 @@
 <div align="center">
-  <b>Spellingly - A python based spell check system!\n</b>
+  <b>Spellingly - A python based spell check system!</b>
  </div>
  
  
