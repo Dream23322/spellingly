@@ -3,9 +3,11 @@
  </div>
  
  
-<b> WARNING - Spellingly is in BETA and is not recommened to be used for professional work!</b>
+<div align="center">
+  <b>WARNING - Spellingly is in BETA and is not recommened to be used for professional work!</b>
+ </div?
 
-
+Things Spellingly Can Do<br />
 Spellingly can detect bad spelling, issues with capitals, slang words(BETA) and some basic suggestions
 
 Download
