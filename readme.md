@@ -5,12 +5,13 @@
  
 <div align="center">
   <b>WARNING - Spellingly is in BETA and is not recommened to be used for professional work!</b>
- </div?
+ </div>
 
-Things Spellingly Can Do<br />
+#Things Spellingly Can Do
+  
 Spellingly can detect bad spelling, issues with capitals, slang words(BETA) and some basic suggestions
 
-Download
+#Download
 
 To download spellingly, you need to download as a zip file, extract it and then run main.py (you might have to pip install some modules)
 python is needed
