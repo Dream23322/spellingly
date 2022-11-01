@@ -9,7 +9,7 @@
 
 # Things Spellingly Can Do
   
-Spellingly can detect bad spelling, issues with capitals, slang words(BETA) and some basic suggestions
+Spellingly can detect bad spelling, issues with capitals and some basic suggestions
 
 # Download 
 
