@@ -5,7 +5,7 @@ import random
 import data.words1
 import data.sentance1
 import data.capital
-import data.slang
+
 while True:
     spelling = 0
     capitals = 0
