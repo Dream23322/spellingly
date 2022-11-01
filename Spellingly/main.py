@@ -12,7 +12,7 @@ while True:
     slang = 0
     issues = 0
     symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", ".", "?", "[", "]", "`", '~', '<', ">", "/", "'", '"', "`"]
-    numbers = [1,2,3,4,5,6,7,8,9,0]
+    numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', "0"]
 
     print("Input your more than 5 word sentence (must but under 30 words or there is a higher chance of errors happening)")
     text = input()
@@ -56,6 +56,10 @@ while True:
                     no_symbol = True
                     print("\nSymbol Detected In Word:", word1) 
                     letter_check = False
+                elif letters[number2] in numbers:
+                    no_symbol = True
+                    letter_check = False
+                    print("\nNumbers Detected In 'Word':,", word1)
             
 
                 
