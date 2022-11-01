@@ -106,20 +106,7 @@ while True:
         issues += 1
 
     number5 -= 1
-    while True:
-        
-
-        if number5 < 0:
-            break
-
-        if word1[number5].lower() in data.slang.slang:
-            slang += 1
-            issues += 1
-            number5 -= 1
-            
-            print(f"\nSlang doesn't sound professional, it would be better with a different word choice")
-        else:
-            number5 -= 1
+ 
 
             
 
