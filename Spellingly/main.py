@@ -17,23 +17,13 @@ while True:
     text = input()
 
     list_of_words = text
-
-
-
     list1 = list_of_words
-
-
-
     list_of_words = list_of_words.split() 
     number1 = len(list_of_words)
     number3 = len(list_of_words)
-
     number1 -= 1
     print(number1)
     print(number3)
-
-
-
     print("This May Take A While\n")
     time.sleep(1)
     while True:
@@ -47,20 +37,11 @@ while True:
         if word1.lower() not in data.words1.words1:
             number1 -= 1
             
-            
-
             letters = list(word1)
         
-            
-
             number2 = len(letters)
             number2 -= 1
     
-            
-
-
-
-
             letter_check = True
             no_symbol = False
 
@@ -93,9 +74,6 @@ while True:
 
     number5 = len(get_number)
 
-
-
-
     word1 = list_of_words[0]
     letters = list(word1)  
 
@@ -106,11 +84,6 @@ while True:
         issues += 1
 
     number5 -= 1
- 
-
-            
-
-
 
     if text == "hello how are you":
         text = "Hello, how are you?"
@@ -128,4 +101,3 @@ while True:
         print(f"- Slang: {slang}")
 
     print("\n\n")
-
