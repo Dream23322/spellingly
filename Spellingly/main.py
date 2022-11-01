@@ -12,6 +12,7 @@ while True:
     slang = 0
     issues = 0
     symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", ".", "?", "[", "]", "`", '~', '<', ">", "/", "'", '"', "`"]
+    numbers = [1,2,3,4,5,6,7,8,9,0]
 
     print("Input your more than 5 word sentence (must but under 30 words or there is a higher chance of errors happening)")
     text = input()
@@ -87,7 +88,7 @@ while True:
 
     if text == "hello how are you":
         text = "Hello, how are you?"
-        print(f"\nThis would sound better:\n{text}")
+        print(f"\n\nThis would sound better:\n{text}")
     
 
     print(f"\ndone!\n\nThere are/is {issues} detected issue(s) in your sentance!\n\n")
