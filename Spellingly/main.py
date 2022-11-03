@@ -5,6 +5,7 @@ import random
 import data.words1
 import data.sentance1
 import data.capital
+import functions.suggestions
 
 while True:
     spelling = 0
@@ -31,7 +32,7 @@ while True:
         word = list_of_words[number1].split()
         word1 = word[0]
         
-
+        functions.suggestions.wordSuggestions()
         if number1 < 0:
             break
 
@@ -59,7 +60,7 @@ while True:
                 elif letters[number2] in numbers:
                     no_symbol = True
                     letter_check = False
-                    print("\nNumbers Detected In 'Word':,", word1)
+                    print("\nNumbers Detected In 'Word':", word1)
             
 
                 
@@ -94,15 +95,15 @@ while True:
         text = "Hello, how are you?"
         print(f"\n\nThis would sound better:\n{text}")
     
+    functions.suggestions.suggestions1()
 
     print(f"\ndone!\n\nThere are/is {issues} detected issue(s) in your sentance!\n\n")
     if issues > 0:
-        print(f"These {issues} include:")
+        print(f"These {issues} issues include:")
     if spelling > 0:
         print(f"- Spelling: {spelling}")
     if capitals > 0:
         print(f"- Capitals: {capitals}")
-    if slang > 0:
-        print(f"- Slang: {slang}")
+
 
     print("\n\n")
