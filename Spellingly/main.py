@@ -15,7 +15,7 @@ while True:
     symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", ".", "?", "[", "]", "`", '~', '<', ">", "/", "'", '"', "`"]
     numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', "0"]
 
-    print("Input your more than 5 word sentence (must but under 30 words or there is a higher chance of errors happening)")
+    print("Input your more than 5 word sentence (must be under 30 words or there is a higher chance of errors happening)")
     text = input()
 
     list_of_words = text
