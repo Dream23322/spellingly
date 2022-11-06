@@ -32,7 +32,7 @@ while True:
         word = list_of_words[number1].split()
         word1 = word[0]
         
-        functions.suggestions.wordSuggestions()
+        
         if number1 < 0:
             break
 
