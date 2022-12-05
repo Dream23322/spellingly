@@ -35,6 +35,7 @@ while True:
         try:
             word = list_of_words[number1].split()
             word1 = word[0]
+        
         except:
             print("------------------------------------\nAn Error has happened while trying to split the paragraph / words")
             failed = True
