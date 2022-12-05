@@ -104,14 +104,29 @@ while True:
         print("Capital Check is disabled in data/config.py' and is highly recommended to be on!")
         break
     number5 -= 1
-
-    if text == "hello how are you":
-        print(f"\n\nThis would sound better:\nHello, how are you?\n")
-        print("Would you like to change it to this? Y or N")
-        changeSentance = input(">> ")
-        if(changeSentance.lower() == "Y") :
-            text = "Hello, how are you?"
-    
+    if(data.config.giveSuggestions["enabled"] == True):
+        if text == "hello how are you":
+            if(data.config.giveSuggestions["askToChange"] == True):
+                print(f"\n\nThis would sound better:\nHello, how are you?\n")
+                print("Would you like to change it to this? Y or N")
+                changeSentance = input(">> ")
+                if(changeSentance.lower() == "y") :
+                    text = "Hello, how are you?"
+                elif(changeSentance.lower() == "n"):
+                    print("Your Text Has Not Been Changed")
+                else:
+                    print("Invalid Response Received")
+            else:
+                text = "Hello, how are you?"
+                print(f"Your text has been changed to {text}")
+            if(data.config.giveSuggestions["resetIssues"] == True):
+                issues = 0
+                capitals = 0
+                spelling = 0
+            else:
+                print("It is useful to turn on resetIssues in data/config/giveSuggestions/resetIssues")
+    else:
+        print("Suggestions are disabled!")
     
     if failed == True:
         break
