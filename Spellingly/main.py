@@ -60,19 +60,19 @@ while True:
                     number2 -= 1
                     if number2 < 0:
                         letter_check = False
-                        
-                    try:
-                        if letters[number2] in symbols:
-                            no_symbol = True
-                            print("\nSymbol Detected In Word:", word1) 
-                            letter_check = False
-                        elif letters[number2] in numbers:
-                            no_symbol = True
-                            letter_check = False
-                            print("\nNumbers Detected In 'Word':", word1)
-                    except:
-                        print("------------------------------------\nAn Error has happened while trying to check for symbols!")
-                        break
+                    if(data.config.spellCheck["checkForSymbols"] == True):   
+                        try:
+                            if letters[number2] in symbols:
+                                no_symbol = True
+                                print("\nSymbol Detected In Word:", word1) 
+                                letter_check = False
+                            elif letters[number2] in numbers:
+                                no_symbol = True
+                                letter_check = False
+                                print("\nNumbers Detected In 'Word':", word1)
+                        except:
+                            print("------------------------------------\nAn Error has happened while trying to check for symbols!")
+                            break
                     
                 if no_symbol == False:     
                     
@@ -85,7 +85,7 @@ while True:
             else:
                 number1 -= 1
         else:
-            print("Spell Check is disabled in 'data/config.py' and is highly recommened to be on!")
+            print("Spell Check is disabled in 'data/config.py' and is highly recommended to be on!")
             break
 
     get_number = list1.split()
@@ -100,15 +100,17 @@ while True:
             capitals += 1
             
             issues += 1
-
+    else:
+        print("Capital Check is disabled in data/config.py' and is highly recommended to be on!")
+        break
     number5 -= 1
 
     if text == "hello how are you":
-        print(f"\n\nThis would sound better:\nHello, how are you\n")
+        print(f"\n\nThis would sound better:\nHello, how are you?\n")
         print("Would you like to change it to this? Y or N")
         changeSentance = input(">> ")
         if(changeSentance.lower() == "Y") :
-            text = "Hello, how are you"
+            text = "Hello, how are you?"
     
     
     if failed == True:
