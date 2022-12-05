@@ -5,7 +5,8 @@ import random
 import data.words1
 import data.sentance1
 import data.capital
-import functions.suggestions
+import data.config
+failed = False
 
 while True:
     spelling = 0
@@ -15,7 +16,7 @@ while True:
     symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ",", ".", "?", "[", "]", "`", '~', '<', ">", "/", "'", '"', "`"]
     numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', "0"]
 
-    print("Input your more than 5 word sentence (must be under 30 words or there is a higher chance of errors happening)")
+    print("Input your more than 5 word sentence (must but under 30 words or there is a higher chance of errors happening)")
     text = input()
 
     list_of_words = text
@@ -29,74 +30,88 @@ while True:
     print("This May Take A While\n")
     time.sleep(1)
     while True:
-        word = list_of_words[number1].split()
-        word1 = word[0]
-        
+        if failed == True:
+            break
+        try:
+            word = list_of_words[number1].split()
+            word1 = word[0]
+        except:
+            print("------------------------------------\nAn Error has happened while trying to split the paragraph / words")
+            failed = True
+            break
+
         
         if number1 < 0:
             break
-
-        if word1.lower() not in data.words1.words1:
-            number1 -= 1
+        if(data.config.spellCheck["enabled"] == True):
+            if word1.lower() not in data.words1.words1:
+                number1 -= 1
+                
+                letters = list(word1)
             
-            letters = list(word1)
-        
-            number2 = len(letters)
-            number2 -= 1
-    
-            letter_check = True
-            no_symbol = False
-
-            while letter_check == True:
+                number2 = len(letters)
                 number2 -= 1
-                if number2 < 0:
-                    letter_check = False
+        
+                letter_check = True
+                no_symbol = False
+
+                while letter_check == True:
+                    number2 -= 1
+                    if number2 < 0:
+                        letter_check = False
+                        
+                    try:
+                        if letters[number2] in symbols:
+                            no_symbol = True
+                            print("\nSymbol Detected In Word:", word1) 
+                            letter_check = False
+                        elif letters[number2] in numbers:
+                            no_symbol = True
+                            letter_check = False
+                            print("\nNumbers Detected In 'Word':", word1)
+                    except:
+                        print("------------------------------------\nAn Error has happened while trying to check for symbols!")
+                        break
+                    
+                if no_symbol == False:     
+                    
+                    print(f"\nThere is an issue with the word:", word1)
+                    spelling += 1
+                    issues += 1
                     
 
-                if letters[number2] in symbols:
-                    no_symbol = True
-                    print("\nSymbol Detected In Word:", word1) 
-                    letter_check = False
-                elif letters[number2] in numbers:
-                    no_symbol = True
-                    letter_check = False
-                    print("\nNumbers Detected In 'Word':", word1)
-            
 
-                
-            if no_symbol == False:     
-                
-                print(f"\nThere is an issue with the word:", word1)
-                spelling += 1
-                issues += 1
-                
-
-
+            else:
+                number1 -= 1
         else:
-            number1 -= 1
-
+            print("Spell Check is disabled in 'data/config.py' and is highly recommened to be on!")
+            break
 
     get_number = list1.split()
 
     number5 = len(get_number)
+    if(data.config.capitalCheck["enabled"] == True) :
+        word1 = list_of_words[0]
+        letters = list(word1)  
 
-    word1 = list_of_words[0]
-    letters = list(word1)  
-
-    if letters[0] not in data.capital.capitals:
-        print("\nCappital needed in word:", word1)
-        capitals += 1
-        
-        issues += 1
+        if letters[0] not in data.capital.capitals:
+            print("\nCappital needed in word:", word1)
+            capitals += 1
+            
+            issues += 1
 
     number5 -= 1
 
     if text == "hello how are you":
-        text = "Hello, how are you?"
-        print(f"\n\nThis would sound better:\n{text}")
+        print(f"\n\nThis would sound better:\nHello, how are you\n")
+        print("Would you like to change it to this? Y or N")
+        changeSentance = input(">> ")
+        if(changeSentance.lower() == "Y") :
+            text = "Hello, how are you"
     
-    functions.suggestions.suggestions1()
-
+    
+    if failed == True:
+        break
     print(f"\ndone!\n\nThere are/is {issues} detected issue(s) in your sentance!\n\n")
     if issues > 0:
         print(f"These {issues} issues include:")
