@@ -9,3 +9,8 @@ spellCheck = {
 capitalCheck = {
     "enabled": True,
 }
+giveSuggestions = {
+    "enabled": True,
+    "askToChange": True,
+    "resetIssues": False,
+}
