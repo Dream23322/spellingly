@@ -131,26 +131,29 @@ while True:
         print("Capital Check is disabled in data/config.py' and is highly recommended to be on!")
         break
     number5 -= 1
-    #try:
-    list_of_words = text
-    list1 = list_of_words
-    list_of_words = list_of_words.split() 
-    number1 = len(list_of_words)
-    number3 = len(list_of_words)
-    number1 -= 1
-    word = list_of_words[number1]
-    last_letter_1 = list(word)
-    
-    last_letter_2 = len(last_letter_1)
-    last_letter_2 -= 1
-    
-    
-    last_letter_3 = last_letter_1
-   
-    if(last_letter_3[last_letter_2] not in data.sentance1.end_sentance) :
-        print("End of sentance statement needed in word:", word)
-    #except:
-    #    print("-----------------------------------------------------------\nAn error has occoured while running this part of the script!\n-----------------------------------------------------------")
+    if(data.config.basicSentanceEndCheck["enabled"] == True):
+        try:
+            list_of_words = text
+            list_of_words = list_of_words.split() 
+            number1 = len(list_of_words)
+            number1 -= 1
+            word = list_of_words[number1]
+            last_letter_1 = list(word)
+            
+            last_letter_2 = len(last_letter_1)
+            last_letter_2 -= 1
+            
+            last_letter_3 = last_letter_1
+        
+            if(last_letter_3[last_letter_2] not in data.sentance1.end_sentance) :
+                print("End of sentance statement needed in word:", word)
+                if(data.config.basicSentanceEndCheck["validIssue"] == True):
+                    no_full_stop += 1
+                    issues += 1
+
+        except:
+            print("-----------------------------------------------------------\nAn error has occoured while running this part of the script!\n-----------------------------------------------------------")
+            
     if(data.config.giveSuggestions["enabled"] == True):
         #If you wish to add your own suggestions. Follow this simple thing
         #First do an if statement on what the original text would have been
@@ -177,13 +180,15 @@ while True:
     
     if failed == True:
         break
-    print(f"\ndone!\n\nThere are/is {issues} detected issue(s) in your sentance!\n\n")
+    print(f"\ndone!\n\nThere are {issues} detected issue(s) in your sentance!\n\n")
     if issues > 0:
         print(f"These {issues} issues include:")
     if spelling > 0:
         print(f"- Spelling: {spelling}")
     if capitals > 0:
         print(f"- Capitals: {capitals}")
+    if no_full_stop > 0:
+        print(f"- No End Of Sentance: {no_full_stop}")
 
 
     print("\n\n")
