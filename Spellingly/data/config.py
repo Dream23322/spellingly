@@ -5,12 +5,18 @@
 spellCheck = {
     "enabled": True,
     "checkForSymbols": True,
+    "validIssue": True,
 }
 capitalCheck = {
     "enabled": True,
+    "validIssue": True,
 }
 giveSuggestions = {
     "enabled": True,
     "askToChange": True,
     "resetIssues": False,
+}
+basicSentanceEndCheck = {
+    "enabled": True,
+    "validIssue": True,
 }
